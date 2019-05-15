@@ -9,8 +9,9 @@ configMapGenerator:
   namespace: kube-system
   files:
   - coredns-resources/Corefile
-  behavior: merge
 - name: node-local-dns
   namespace: kube-system
   files:
   - nodelocaldns-resources/Corefile
+generatorOptions:
+  disableNameSuffixHash: true
