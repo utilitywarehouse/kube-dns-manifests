@@ -1,0 +1,19 @@
+# default config from
+# https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/coredns/coredns.yaml.base
+# needs to be patched
+.:53 {
+    errors
+    health
+    kubernetes __PILLAR__DNS__DOMAIN__ in-addr.arpa ip6.arpa {
+        pods insecure
+        upstream
+        fallthrough in-addr.arpa ip6.arpa
+        ttl 30
+    }
+    prometheus :9153
+    forward . /etc/resolv.conf
+    cache 30
+    loop
+    reload
+    loadbalance
+}

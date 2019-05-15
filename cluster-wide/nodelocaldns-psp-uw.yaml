@@ -1,0 +1,26 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: node-local-dns
+spec:
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  runAsUser:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  privileged: true
+  volumes:
+  - '*'
+  hostNetwork: true
+  hostPorts:
+  - min: 53
+    max: 53
+  - min: 10153
+    max: 10153
+  - min: 10180
+    max: 10180
+  allowedHostPaths:
+  - pathPrefix: "/run/xtables.lock"
