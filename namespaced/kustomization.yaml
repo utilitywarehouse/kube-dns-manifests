@@ -13,5 +13,3 @@ configMapGenerator:
   namespace: kube-system
   files:
   - nodelocaldns-resources/Corefile
-generatorOptions:
-  disableNameSuffixHash: true
