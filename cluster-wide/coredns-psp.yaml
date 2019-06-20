@@ -27,7 +27,7 @@ kind: PodSecurityPolicy
 metadata:
   name: coredns
   annotations:
-    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'docker/default'
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'runtime/default'
 spec:
   seLinux:
     rule: RunAsAny
